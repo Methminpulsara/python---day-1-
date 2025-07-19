@@ -18,3 +18,8 @@ height = 1.56
 # print(f"{my_name} {age} {is_student} {height} ")
 # print(my_name  + " "  +str(age)  )
 
+
+# speed_of_light = 3E8
+speed_of_light = 3E-8
+
+print(speed_of_light)
