@@ -35,3 +35,5 @@ city="Horana"
 print(f" {name} {age} {city}")
 
 print("cats", "dogs", "birds", sep="?")
+
+
