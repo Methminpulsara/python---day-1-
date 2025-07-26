@@ -33,17 +33,25 @@
 # else:
 #     print("Names not Match")
 
-num_1 = 20
-num_2 = 20
+# num_1 = 20
+# num_2 = 20
+#
+# if num_1 > num_2:
+#     print("Large number is ", num_1)
+# elif num_1 < num_2:
+#     print("Large number is", num_2)
+# else:
+#     print("numbers are equal")
 
-if num_1 > num_2:
-    print("Large number is ", num_1)
-elif num_1 < num_2:
-    print("Large number is", num_2)
-else:
-    print("numbers are equal")
+a = 10
+b = 20
 
+a = a + b
+b = a - b
+a = a - b
 
+print("a =", a)
+print("b =", b)
 
 
 
