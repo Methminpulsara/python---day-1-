@@ -42,3 +42,11 @@ elif num_1 < num_2:
     print("Large number is", num_2)
 else:
     print("numbers are equal")
+
+
+
+
+
+
+
+
