@@ -7,6 +7,5 @@ if amount >= 0 and years > 0:
     total_amount = amount + interest
     print(f"interest : {interest}")
     print(f"Total Amount after {years} years: {total_amount}")
-
 else:
     print("invalid")
