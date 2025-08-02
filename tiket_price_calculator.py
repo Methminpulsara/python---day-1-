@@ -23,7 +23,7 @@ while True:
 
     print(f" Your Ticket Price is : {final_price}")
 
-    yes_or_no = input("You want to Play again ?  y/n:  ")
+    yes_or_no = input("You want to Play yes_or_no ?  y/n:  ")
     if yes_or_no == "n":
         break
 

@@ -17,3 +17,18 @@ print("Remove the first occurence in the list => " , numbers)
 
 if 0 in numbers:
     print("List eka athule thiyend chek krnn puluwan apita one value ekk =>  yes")
+
+numbers.clear()
+print("Whule list is cleared : ", numbers)
+
+
+
+new_list = []
+
+list_with_dups = [2, 2, 2, 6, 5, 7, 8, 8, 8, 8]
+
+for number in list_with_dups:
+    if number not in new_list:
+        new_list.append(number)
+
+print(" without duplicates:", new_list)
