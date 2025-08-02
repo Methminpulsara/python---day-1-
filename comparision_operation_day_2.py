@@ -37,9 +37,9 @@
 # num_2 = 20
 #
 # if num_1 > num_2:
-#     print("Large number is ", num_1)
+#     print("Large numbers is ", num_1)
 # elif num_1 < num_2:
-#     print("Large number is", num_2)
+#     print("Large numbers is", num_2)
 # else:
 #     print("numbers are equal")
 

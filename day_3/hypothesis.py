@@ -1,4 +1,4 @@
-c0 = int(input("Enter a positive number: "))
+c0 = int(input("Enter a positive numbers: "))
 
 if c0 > 1:
     while c0 != 1:
