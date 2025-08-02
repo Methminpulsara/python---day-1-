@@ -26,4 +26,3 @@ print("Word without vowels:", result)
 # vowels = "AEIOU"
 #
 # for letter in vowels:
-#
