@@ -4,3 +4,7 @@ print(x == y)
 
 print(x * y)
 
+my = ["bla","bla"]
+
+my.insert(0, "Hello")
+print(my)
