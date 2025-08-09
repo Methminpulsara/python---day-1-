@@ -1,5 +1,5 @@
 
-temps_for_a_week_per_day = [[0.0 for _ in range(3)] for _ in range(7)]
+temps_for_a_week_per_day = [[0.0 for i in range(3)] for _ in range(7)]
 while True:
     print("\n Add Details              [1]")
     print(" Show Maximum Weather Value [2]")
@@ -59,5 +59,23 @@ while True:
                total += hour
         print("\nAverage for the weeek  ", total//21)
 
+
+
+        """
+        okkogema avg ek gnn thawa krmyk thiynw 
+        """
+        flattend_arr =[]
+
+        for day in temps_for_a_week_per_day:
+            for temp in day:
+                flattend_arr.append(temp)
+
+                print(f"average :  {sum(flattend_arr) // len(flattend_arr)}")
+
     else:
         print("Invalid choice, please try again.")
+
+
+
+def my():
+    print("helo")

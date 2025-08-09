@@ -1,3 +1,4 @@
+
 anwser_arr = []
 total_hours = 0
 
@@ -20,3 +21,5 @@ print(f"Average = {sum(anwser_arr) // len(anwser_arr)} ")
 
 arr = [hours for hours in anwser_arr if hours >= 8]
 print(f"More than 8 hours   {len(arr)} days")
+
+
