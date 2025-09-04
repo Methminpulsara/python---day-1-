@@ -9,3 +9,11 @@ for i in immutible_tuple:
 
 single_element_couple = (1,)
 print("Single element touple =      " , single_element_couple)
+
+
+
+# Tuple unpack
+
+unpack = (1 , 2 , 3 , 4)
+a,b,c,d = unpack
+print("After unpack \n" , a )
