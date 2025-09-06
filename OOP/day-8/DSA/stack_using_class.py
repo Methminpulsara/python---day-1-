@@ -8,7 +8,7 @@ class Stack:
     def pop(self):
         if self.is_empty():
             raise Exception("Stack is Empty")
-        # use list.pop() — simpler and clearer
+
         return self.stack.pop()
 
     def is_empty(self):
@@ -20,23 +20,70 @@ class Stack:
 
 class CountingStack(Stack):
     def __init__(self):
-        super().__init__()      # <-- IMPORTANT: initializes self.stack
-        self.__count = 0        # name-mangled "private" variable
+        Stack.__init__(self)
+        self.__count = 0
 
     def pop(self):
-        # Call parent pop(), let it raise if empty.
+
         val = super().pop()
-        self.__count += 1       # only increment after a successful pop
+        self.__count += 1
         return val
 
     def get_count(self):
         return self.__count
 
 cs = CountingStack()
-cs.push(10)
-cs.push(20)
 
-print("Before popping:", cs.stack)    # => [10, 20]
-print("Popped:", cs.pop())            # => 20
-print("After popping:", cs.stack)     # => [10]
-print("Pop count:", cs.get_count())   # => 1
+cs.push(1)
+cs.push(1)
+cs.push(1)
+cs.push(1)
+cs.push(1)
+cs.push(1)
+cs.push(1)
+cs.push(1)
+
+cs.pop()
+cs.pop()
+cs.pop()
+cs.pop()
+
+print(cs.get_count())
+print(cs.stack)
+
+
+class SumCalculate(CountingStack):
+
+    def __init__(self):
+        super().__init__()
+        self.__sum_of_ele = 0
+
+    def push(self, element):
+        super().push(element)
+        self.__sum_of_ele += element
+
+    def pop(self):
+        element = super().pop()
+        if element is not None:
+            self.__sum_of_ele -= element
+        return element
+
+    def get_sum(self):
+        return self.__sum_of_ele
+
+
+sc = SumCalculate()
+
+sc.push(10)
+sc.push(1)
+sc.push(1)
+sc.push(1)
+sc.push(1)
+
+sc.pop()
+sc.pop()
+sc.pop()
+
+print(f"Poping count -  {sc.get_count()}")
+print(f"After Remove - {sc.stack}")
+print(f"After Calculating sum {sc.get_sum()}")
