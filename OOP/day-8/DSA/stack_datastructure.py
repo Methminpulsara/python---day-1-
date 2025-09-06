@@ -1,5 +1,5 @@
 stack = []
-
+stack2 = []
 
 def push(value):
     return stack.append(value)
@@ -15,11 +15,8 @@ def pop():
 def is_empty():
     return len(stack) == 0
 
-
-
 push(1)
 push(2)
 
-print("Pop = ", pop())
 
 print(stack)
