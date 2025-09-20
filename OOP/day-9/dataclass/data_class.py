@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from typing import List
 
-
 @dataclass
 class Student:
     name : str
@@ -16,7 +15,6 @@ class Student:
     def get_avg(self) -> float:
         if len(self.grades) == 0 :
             return sum(self.grades) / len(self.grades)
-
 
 student = Student("Methmin"  ,18 , "0719189399" , "It" , 10)
 
