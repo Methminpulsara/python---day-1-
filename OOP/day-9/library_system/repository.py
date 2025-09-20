@@ -105,3 +105,8 @@ class InMemoryLoanRepository(LoanRepository):
 
     def get_all_loans(self) -> List[Loan]:
         return list(self.loans.values())
+
+
+loan_repo1 = InMemoryLoanRepository()
+
+loan_repo1.add_loan(Loan("123" , "121" , "232" , datetime.now() ))
