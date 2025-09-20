@@ -30,11 +30,7 @@ class Account:
     def __str__(self):
         return f"Account {self.acc_no} | Branch: {self.branch} | Owner: {self.user.name}"
 
-
-user1 = User()
-user1.set_nice("23424234v")
-user1.set_name("Methmin")
-user1.set_contact("0719189399")
+user1 = User("2684626832v", "Methmin", "0719189399")
 acc1 = Account("123", 5000, "Horana Branch", user1)
 
 print(acc1)
