@@ -1,5 +1,4 @@
 from repository import *
-
 from dataclasses import dataclass
 
 class LibraryExeption(Exception):
@@ -29,3 +28,7 @@ class LibraryService:
             raise LibraryExeption("Member already exists")
 
         user = Member(member_id , name)
+
+    def list_all_books(self):
+       for book in self.books:
+           print(book)
