@@ -1,10 +1,7 @@
-from day_10.shop.repository.implemntation import im_memory_customer_repository, in_memory_order_repository
-from day_10.shop.repository.order_repository import *
-from day_10.shop.repository.product_repository import *
-from day_10.shop.repository.customer_repository import *
+
 from day_10.shop.repository.implemntation.in_memory_order_repository import *
-from day_10.shop.repository.implemntation.InMemoryProductRepository import *
-from day_10.shop.repository.implemntation.im_memory_customer_repository import *
+from day_10.shop.repository.implemntation.inMemoryProductRepository import *
+from day_10.shop.repository.implemntation.in_memory_customer_repository import *
 
 from day_10.shop.models import OrderItem
 
@@ -97,6 +94,8 @@ class SupperMarketService:
     def get_all_available_products(self) -> List[Product]:
         return [product for product in self.products.list_all_products() if product.is_available()]
 
-    def get_all_customers(self):
+    def get_all_customers(self) -> List[Customer]:
         return self.customer.list_all_customer()
 
+    def get_all_orders(self) -> List[Order]:
+        return self.order.list_all_order()

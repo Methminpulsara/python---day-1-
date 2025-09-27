@@ -4,7 +4,7 @@ from day_10.shop.repository.customer_repository import CustomerRepository
 from day_10.shop.models import Customer
 
 
-class InMemoryProductRepository(CustomerRepository):
+class InMemoryCustomerRepository(CustomerRepository):
 
     def __init__(self):
         self.__customer: Customer[str: Customer] = {}
