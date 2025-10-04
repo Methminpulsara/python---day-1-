@@ -89,3 +89,25 @@ class InMemoryLoanRepository(LoanRepository):
 
     def get_all_loans(self) -> List[Loan]:
         return list(self.loans.values())
+
+class FileSaveBookRepository(BookRepository):
+
+    def __init__(self , filename:str = "files/book.txt"):
+        self.file_name = filename
+
+    def save_books(self , books : Dict[str , Book]):
+        pass
+
+    def load_books(self)->Dict[str , Book]:
+        pass
+    def add_book(self, book: Book) -> None:
+        pass
+
+    def get_by_id(self, book_id) -> Book:
+        pass
+
+    def update_book(self, book: Book) -> None:
+        pass
+
+    def get_all_books(self) -> List[Book]:
+        pass
