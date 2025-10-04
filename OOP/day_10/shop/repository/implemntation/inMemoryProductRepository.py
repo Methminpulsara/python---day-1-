@@ -49,13 +49,13 @@ class FileSaveProductRepository(ProductRepository):
             }
             for product_id, product in products.items()
         }
-        with open(self.filename, "w", encoding="utf-8") as f:
+        with open(self.filename, "w") as f:
             json.dump(product_dict, f, indent=4)
 
     def _load_all_products(self) -> Dict[str, Product]:
 
         try:
-            with open(self.filename, "r", encoding="utf-8") as f:
+            with open(self.filename, "r",) as f:
                 data = json.load(f)
                 return {
                     pid: Product(

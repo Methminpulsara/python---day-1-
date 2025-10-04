@@ -1,13 +1,15 @@
-from typing import List
+from typing import List, Dict
 
 from day_10.shop.repository.order_repository import OrderRepository
 from day_10.shop.models import Order
 
 
 class InMemoryOrderRepository(OrderRepository):
-    def __init__(self):
-        self.__orders: Order[str: Order] = {}
+    def __init__(self , filename:str = "orders.txt"):
+        self.filename = filename
 
+    def __save(self , orders:Dict[str:Order]):
+        orders_dict = {}
     def add(self, order: Order) -> None:
         self.__orders[order.order_id] = order
 
