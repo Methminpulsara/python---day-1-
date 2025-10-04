@@ -1,34 +1,30 @@
-from repository import *
+# library_service.py
 from dataclasses import dataclass
+from repository import BookRepository, MemberRepository, LoanRepository
+from models import Book, Member
 
-class LibraryExeption(Exception):
+class LibraryException(Exception):
     pass
-# data class use krnne nthuwa constructer widiyatat hadhla thiynne
+
 @dataclass
 class LibraryService:
+    books: BookRepository
+    member: MemberRepository
+    loan: LoanRepository
 
-    books : BookRepository
-    member : MemberRepository
-    loan : LoanRepository
-
-    # def __init__(self , book : BookRepository , member : MemberRepository , loan : LoanRepository):
-    #     self.book = book
-    #     self.member = member
-    #     self.loan = loan
-
-
-    def add_book(self, book_id :str , title : str , author:str ,year : str) -> Book:
+    def add_book(self, book_id: str, title: str, author: str, year: str) -> Book:
         if self.books.get_by_id(book_id) is not None:
-            raise LibraryExeption("Book already exists")
+            raise LibraryException("Book already exists")
+        book = Book(book_id, title, author, year)
+        self.books.add_book(book)
+        return book
 
-        book = Book(book_id , title , author, year)
-
-    def add_member(self , member_id:str , name :str) -> Member:
+    def add_member(self, member_id: str, name: str) -> Member:
         if self.member.get_member_by_id(member_id) is not None:
-            raise LibraryExeption("Member already exists")
-
-        user = Member(member_id , name)
+            raise LibraryException("Member already exists")
+        user = Member(member_id, name)
+        self.member.add_member(user)
+        return user
 
     def list_all_books(self):
-       for book in self.books:
-           print(book)
+        return self.books.get_all_books()
