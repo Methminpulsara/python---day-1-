@@ -1,6 +1,8 @@
 from day_10.shop.repository.implemntation.in_memory_order_repository import InMemoryOrderRepository
 from day_10.shop.repository.implemntation.in_memory_customer_repository import InMemoryCustomerRepository
 from day_10.shop.repository.implemntation.inMemoryProductRepository import InMemoryProductRepository
+from day_10.shop.repository.implemntation.inMemoryProductRepository import FileSaveProductRepository
+
 from day_10.shop.service.service import SupperMarketService, SuperMarketException
 
 
@@ -17,7 +19,7 @@ def print_menu():
     print("-" * 50)
 
 
-product_repo = InMemoryProductRepository()
+product_repo = FileSaveProductRepository()
 customer_repo = InMemoryCustomerRepository()
 order_repo = InMemoryOrderRepository()
 
