@@ -1,28 +1,7 @@
 from day_10.shop.repository.implemntation.in_memory_order_repository import InMemoryOrderRepository
 from day_10.shop.repository.implemntation.in_memory_customer_repository import InMemoryCustomerRepository
 from day_10.shop.repository.implemntation.inMemoryProductRepository import InMemoryProductRepository
-
 from day_10.shop.service.service import SupperMarketService, SuperMarketException
-
-
-# def print_header():
-#     print("\n" + "=" * 50)
-#     print("        🛒 SUPERMARKET MANAGEMENT SYSTEM 🛒")
-#     print("=" * 50)
-def print_table(headers, rows):
-    """Simple ASCII table renderer"""
-    col_widths = [len(h) for h in headers]
-    for row in rows:
-        for i, cell in enumerate(row):
-            col_widths[i] = max(col_widths[i], len(str(cell)))
-
-    line = "+".join("-" * (w + 2) for w in col_widths)
-    print("+" + line + "+")
-    print("| " + " | ".join(h.ljust(col_widths[i]) for i, h in enumerate(headers)) + " |")
-    print("+" + line + "+")
-    for row in rows:
-        print("| " + " | ".join(str(cell).ljust(col_widths[i]) for i, cell in enumerate(row)) + " |")
-    print("+" + line + "+")
 
 
 def print_menu():
@@ -52,7 +31,7 @@ def main():
     while True:
         # print_header()
         print_menu()
-        choice = input("Enter your choice: ").strip()
+        choice = input("Enter your choice: ")
 
         try:
             if choice == "1":
@@ -67,33 +46,25 @@ def main():
             elif choice == "4":
                 add_items_for_order()
 
-            # elif choice == "5":
-            #
-            #     products = service.get_all_products()
-            #     rows = [(p.product_id, p.name, f"{p.price:.2f}", p.quantity) for p in products]
-            #     print_table(["ID", "Name", "Price", "Quantity"], rows)
-            #
-            # elif choice == "6":
-            #     products = service.get_all_available_products()
-            #     rows = [(p.product_id, p.name, f"{p.price:.2f}", p.quantity) for p in products]
-            #     print_table(["ID", "Name", "Price", "Quantity"], rows)
-            #
-            # elif choice == "7":
-            #     customers = service.get_all_customers()
-            #     rows = [(c.customer_id, c.customer_name, c.email, c.contact) for c in customers]
-            #     print_table(["ID", "Name", "Email", "Contact"], rows)
+            elif choice == "5":
+                get_prodcts()
+
+            elif choice == "6":
+                get_available_products()
+            elif choice == "7":
+                get_all_customers()
 
             elif choice == "0":
-                print("👋 Exiting SuperMarket System...")
+                print("Exiting SuperMarket System...")
                 break
 
             else:
-                print("❌ Invalid choice, please try again.")
+                print("Invalid choice, please try again.")
 
         except SuperMarketException as e:
-            print(f"⚠ Error: {e}")
+            print(f"Error: {e}")
         except Exception as e:
-            print(f"❌ Unexpected Error: {e}")
+            print(f"Error: {e}")
 
 
 def add_product():
@@ -102,7 +73,7 @@ def add_product():
     price = float(input("Enter Price: "))
     qty = int(input("Enter Quantity: "))
     product = service.add_product(pid, name, price, qty)
-    print(f"Product added: {product.name} ({product.quantity} pcs)")
+    print(f"Product added: {product.name} ({product.quantity} /=)")
 
 
 def add_customer():
@@ -118,7 +89,7 @@ def create_order():
     oid = input("Enter Order ID: ")
     cid = input("Enter Customer ID: ")
     order = service.add_order(oid, cid)
-    print(f"✅ Order created: {order.order_id}")
+    print(f"Order created: {order.order_id}")
 
 
 def add_items_for_order():
@@ -126,7 +97,21 @@ def add_items_for_order():
     pid = input("Enter Product ID: ")
     qty = int(input("Enter Quantity: "))
     service.add_order_items(oid, pid, qty)
-    print("✅ Item added to order")
+    print("Item added to order")
+
+
+def get_prodcts():
+    products = service.get_all_products()
+
+
+
+def get_available_products():
+    products = service.get_all_available_products()
+
+
+
+def get_all_customers():
+    customers = service.get_all_customers()
 
 
 main()
